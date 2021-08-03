@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pty.web.mapper.MemberMapper">
+	<insert id="memberJoin">
+		insert into member
+		values ( #{memberId}, #{memberPw}, #{memberName}, #{memberMail},
+				 0, sysdate, 100000, 5000 )
+	</insert>
+
+	<select id="idCheck" resultType="int">
+		select count(*)
+		  from member
+		 where memberId = #{memberId}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="memberLogin" resultType="com.pty.web.vo.MemberVO">
+		select memberId, memberPw, memberName, adminck, money, point
+		  from member
+		 where memberId = #{memberId}
+	</select>
+</mapper>
