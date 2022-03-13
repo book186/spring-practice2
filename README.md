@@ -1,4 +1,4 @@
-# spring-practice1
+# spring-security (practice1)
 
 java, jsp, js, spirng, spring-security..
 
